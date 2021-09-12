@@ -2,12 +2,19 @@
   "name": "use-csv",
   "version": "1.0.0",
   "description": "React hook for using exportable csv in convenient way",
-  "main": "dist/index.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "scripts": {
-    "build": "tsc -t 'ES2015' --moduleResolution 'Node' -m 'commonjs' --outDir './dist' index.ts",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "test": "jest",
     "test:watch": "jest --watch"
   },
+  "files": [
+    "/lib"
+  ],
   "keywords": [
     "react",
     "hooks",
@@ -25,8 +32,11 @@
     "react-dom": "^16.14.0"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/react": "^17.0.20",
     "jest": "^27.1.1",
     "react": "^16.14.0",
+    "ts-jest": "^27.0.5",
     "typescript": "^4.4.3"
   },
   "prettier": {
@@ -34,5 +44,17 @@
     "printWidth": 90,
     "tabWidth": 2,
     "singleQuote": true
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-typescript": "^7.15.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "roots": [
+      "<rootDir>/src"
+    ]
   }
 }
