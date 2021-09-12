@@ -8,3 +8,7 @@ export declare type Options = {
   headers: string[]
   fileName: string
 }
+export declare function useCSVLink(
+  content: Content,
+  options?: Partial<Options>
+): JSX.Element
