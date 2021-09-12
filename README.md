@@ -38,6 +38,8 @@ function Component() {
 }
 ```
 
+## [Live Example](https://codesandbox.io/s/zealous-haibt-8rr08)
+
 ## API
 
 ```js
