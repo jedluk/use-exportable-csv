@@ -1,0 +1,38 @@
+{
+  "name": "use-csv",
+  "version": "1.0.0",
+  "description": "React hook for using exportable csv in convenient way",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -t 'ES2015' --moduleResolution 'Node' -m 'commonjs' --outDir './dist' index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "csv",
+    "csv-export"
+  ],
+  "author": {
+    "name": "Jędrzej Łukasiuk",
+    "email": "jedrzej.lukasiuk@gmail.com"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "devDependencies": {
+    "jest": "^27.1.1",
+    "react": "^16.14.0",
+    "typescript": "^4.4.3"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 90,
+    "tabWidth": 2,
+    "singleQuote": true
+  }
+}
