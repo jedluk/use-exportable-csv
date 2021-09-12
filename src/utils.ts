@@ -36,5 +36,9 @@ export function toValidFileName(fileName: string): string {
 const BOM = new Uint8Array([0xef, 0xbb, 0xbf])
 
 export function createLink(content: string, useBOM: boolean): string {
-  return createObjectURL(Blob(useBOM ? [BOM, content] : [content]))
+  return createObjectURL(
+    Blob(useBOM ? [BOM, content] : [content], {
+      type: 'text/csv;charset=utf-8',
+    })
+  )
 }

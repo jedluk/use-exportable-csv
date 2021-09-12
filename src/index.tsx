@@ -3,7 +3,7 @@ import { createLink, toCSV, toValidFileName } from './utils'
 import { Content, Options } from '../index'
 
 export function useCSVLink(content: Content, options: Options = {}) {
-  const { bom = false, delimiter = ',', headers, fileName = 'data.csv' } = options
+  const { headers, bom = false, delimiter = ',', fileName = 'data.csv' } = options
 
   const attributes: AnchorHTMLAttributes<HTMLAnchorElement> = useMemo(
     () => ({

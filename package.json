@@ -5,6 +5,16 @@
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jedluk/use-csv"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "bugs": {
+    "url": "https://github.com/jedluk/use-csv/issues"
+  },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
