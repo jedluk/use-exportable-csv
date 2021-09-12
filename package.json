@@ -21,7 +21,7 @@
     "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "test": "jest",
     "test:watch": "jest --watch",
-    "publish": "npm test && npm version patch && npm publish --access public"
+    "publish": "npm test && npm run build && npm version patch -m \"bump version\" && npm publish --access public"
   },
   "files": [
     "index.d.ts",
