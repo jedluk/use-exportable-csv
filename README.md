@@ -1,4 +1,4 @@
-# use-csv
+# use-exportable-csv
 
 React hook for using csv export in convenient way.
 
@@ -26,7 +26,7 @@ function Component() {
     []
   )
 
-  const csvLink = useCSVLink(data, options)
+  const csvLink = useExportableCSV(data, options)
 
   return (
     <div className="xyz">
@@ -54,9 +54,9 @@ type Content = Value[][] | Record<string, Value | Value[]>[]
 
 ```
 
-`useCSVLink()` call
+`useExportableCSV()` call
 
 ```js
-const link: JSX.Element = useCSVLink(content: Content, options: Options)
+const link: JSX.Element = useExportableCSV(content: Content, options: Options)
 
 ```

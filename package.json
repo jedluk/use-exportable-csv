@@ -1,19 +1,19 @@
 {
-  "name": "use-csv",
-  "version": "1.0.0",
+  "name": "use-exportable-csv",
+  "version": "0.0.1",
   "description": "React hook for using exportable csv in convenient way",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jedluk/use-csv"
+    "url": "https://github.com/jedluk/use-exportable-csv"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
   "bugs": {
-    "url": "https://github.com/jedluk/use-csv/issues"
+    "url": "https://github.com/jedluk/use-exportable-csv/issues"
   },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
@@ -31,7 +31,10 @@
     "hooks",
     "react-hooks",
     "csv",
-    "csv-export"
+    "csv-export",
+    "exportable-csv",
+    "download",
+    "download-csv"
   ],
   "author": {
     "name": "Jędrzej Łukasiuk",

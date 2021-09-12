@@ -9,7 +9,7 @@ export declare type Options = Partial<{
   headers: string[]
   fileName: string
 }>
-export declare function useCSVLink(
+export declare function useExportableCSV(
   content: Content,
   options?: Partial<Options>
 ): JSX.Element

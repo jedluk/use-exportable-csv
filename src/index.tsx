@@ -2,7 +2,7 @@ import React, { useMemo, useEffect, AnchorHTMLAttributes } from 'react'
 import { createLink, toCSV, toValidFileName } from './utils'
 import { Content, Options } from '../index'
 
-export function useCSVLink(content: Content, options: Options = {}) {
+export function useExportableCSV(content: Content, options: Options = {}) {
   const { headers, bom = false, delimiter = ',', fileName = 'data.csv' } = options
 
   const attributes: AnchorHTMLAttributes<HTMLAnchorElement> = useMemo(
