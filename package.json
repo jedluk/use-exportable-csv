@@ -20,7 +20,8 @@
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "publish": "npm test && npm version patch && npm publish --access public"
   },
   "files": [
     "index.d.ts",
@@ -59,10 +60,7 @@
     "tabWidth": 2,
     "singleQuote": true
   },
-  "dependencies": {
-    "@babel/preset-env": "^7.15.6",
-    "@babel/preset-typescript": "^7.15.0"
-  },
+  "dependencies": {},
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"

@@ -1,6 +1,6 @@
 # use-exportable-csv
 
-React hook for using csv export in convenient way.
+React hook for downloading csv in convenient way.
 
 - your json-like data in converted into csv (with options You provide: delimiter, BOM mask) and on top of this, blob is generated
 - blob is available under DOMString, which is bounded with anchor tag returned from hook
