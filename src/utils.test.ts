@@ -71,7 +71,7 @@ describe('utils', () => {
   describe('createLink', () => {
     it('invokes correct global functions', () => {
       const content = 'header1,header2\r\ndata1,data2'
-      createLink(content)
+      createLink(content, false)
       expect(createObjectURL).toHaveBeenCalledTimes(1)
       expect(Blob).toHaveBeenCalledTimes(1)
     })

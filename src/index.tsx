@@ -2,15 +2,15 @@ import React, { useMemo, useEffect, AnchorHTMLAttributes } from 'react'
 import { createLink, toCSV, toValidFileName } from './utils'
 import { Content, Options } from '../index'
 
-export function useCSVLink(content: Content, options: Partial<Options>) {
-  const { delimiter = ',', headers, fileName = 'data.csv' } = options
+export function useCSVLink(content: Content, options: Options = {}) {
+  const { bom = false, delimiter = ',', headers, fileName = 'data.csv' } = options
 
   const attributes: AnchorHTMLAttributes<HTMLAnchorElement> = useMemo(
     () => ({
-      href: createLink(toCSV(content, delimiter, headers)),
+      href: createLink(toCSV(content, delimiter, headers), bom),
       download: toValidFileName(fileName),
     }),
-    [delimiter, fileName, headers, content]
+    [bom, delimiter, fileName, headers, content]
   )
 
   useEffect(() => {

@@ -35,6 +35,6 @@ export function toValidFileName(fileName: string): string {
 
 const BOM = new Uint8Array([0xef, 0xbb, 0xbf])
 
-export function createLink(content: string, useBOM = true): string {
+export function createLink(content: string, useBOM: boolean): string {
   return createObjectURL(Blob(useBOM ? [BOM, content] : [content]))
 }
