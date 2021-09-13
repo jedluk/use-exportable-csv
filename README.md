@@ -1,4 +1,4 @@
-# use-exportable-csv [![npm](https://img.shields.io/npm/v/use-exportable-csv.svg)](https://www.npmjs.com/package/use-exportable-csv) [![npm downloads](https://img.shields.io/npm/dm/react-perfect-zoom.svg)](https://www.npmjs.com/package/use-exportable-csv)
+# use-exportable-csv [![npm](https://img.shields.io/npm/v/use-exportable-csv.svg)](https://www.npmjs.com/package/use-exportable-csv) [![npm downloads](https://img.shields.io/npm/dm/use-exportable-csv.svg)](https://www.npmjs.com/package/use-exportable-csv)
 
 React hook for downloading csv in convenient way.
 
