@@ -1,4 +1,4 @@
-import { createLink, toCSV, toValidFileName } from './utils'
+import { createLink, toCSV } from './utils'
 import { Blob, createObjectURL } from './globals'
 
 jest.mock('./globals')
@@ -74,16 +74,6 @@ describe('utils', () => {
       createLink(content, false)
       expect(createObjectURL).toHaveBeenCalledTimes(1)
       expect(Blob).toHaveBeenCalledTimes(1)
-    })
-  })
-
-  describe('toValidFileName', () => {
-    it('returns filename unchanged if ends with csv', () => {
-      expect(toValidFileName('data.csv')).toEqual('data.csv')
-    })
-
-    it('returns filename with csv extension otherwise', () => {
-      expect(toValidFileName('data')).toEqual('data.csv')
     })
   })
 })

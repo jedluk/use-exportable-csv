@@ -1,15 +1,9 @@
-type Value = string | number | bigint | boolean | null
+export declare type Value = string | number | bigint | boolean | null
 export declare type Content = Value[][] | Record<string, Value | Value[]>[]
 export declare type CSVDelimiter = ',' | ';'
 export declare type Options = Partial<{
   bom: boolean
-  children: JSX.Element | string
-  className: string
   delimiter: CSVDelimiter
   headers: string[]
-  fileName: string
 }>
-export declare function useExportableCSV(
-  content: Content,
-  options?: Partial<Options>
-): JSX.Element
+export declare function useExportableCSV(content: Content, options?: Options): string

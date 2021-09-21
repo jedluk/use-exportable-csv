@@ -1,11 +1,17 @@
-import { Content, CSVDelimiter } from '../index'
+import { Content, CSVDelimiter, Value } from '../index'
 import { Blob, createObjectURL } from './globals'
 
-function sanitize(delimeter: CSVDelimiter): (word: string) => string {
-  return (word) => (word.includes(delimeter) ? `"${word}"` : word)
+const LINE_BREAK = '\r\n'
+const BOM = new Uint8Array([0xef, 0xbb, 0xbf])
+
+function sanitize(delimeter: CSVDelimiter): (values: string[]) => string[] {
+  return (values: string[]): string[] =>
+    values.map((value) => (value.includes(delimeter) ? `"${value}"` : value))
 }
 
-const LINE_BREAK = '\r\n'
+function stringify(values: Value[]): string[] {
+  return values.map((value) => `${value}`)
+}
 
 export function toCSV(
   content: Content,
@@ -15,25 +21,12 @@ export function toCSV(
   if (content.length === 0) {
     return ''
   }
-
-  const csv = [
-    headers !== undefined
-      ? headers.join(delimeter)
-      : Object.keys(content[0]).join(delimeter),
-  ]
-  content.forEach((row) => {
-    const csvRow = Object.values(row).map(String).map(sanitize(delimeter)).join(delimeter)
-    csv.push(csvRow)
-  })
-
-  return csv.join(LINE_BREAK)
+  const rows = content.map(Object.values).map(stringify).map(sanitize(delimeter))
+  return [headers !== undefined ? headers : Object.keys(content[0])]
+    .concat(rows)
+    .map((row) => row.join(delimeter))
+    .join(LINE_BREAK)
 }
-
-export function toValidFileName(fileName: string): string {
-  return fileName.endsWith('.csv') ? fileName : `${fileName}.csv`
-}
-
-const BOM = new Uint8Array([0xef, 0xbb, 0xbf])
 
 export function createLink(content: string, useBOM: boolean): string {
   return createObjectURL(

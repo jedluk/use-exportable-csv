@@ -2,9 +2,9 @@
 
 React hook for downloading csv in convenient way.
 
-- your json-like data in converted into csv (with options You provide: delimiter, BOM mask) and on top of this, blob is generated
-- blob is available under DOMString, which is bounded with anchor tag returned from hook
-- anchor can be easily customized by options specified by You
+- your json-like data in converted into csv (with options You provide: delimiter, headers, BOM mask) and on top of this, blob is generated
+- blob is available under DOMString, which returned from hook
+- each time you change your data/options, DOMString is unbound from document
 
 ## Usage
 
@@ -18,38 +18,30 @@ function Component() {
       .then(setData)
   }, [])
 
-  const options = useMemo(
-    () => ({
-      filename: 'data.csv',
-      children: <button className="button">Download CSV</button>,
-    }),
-    []
-  )
-
+  const options = { bom: true }
   const csvLink = useExportableCSV(data, options)
 
   return (
     <div className="xyz">
       (...)
-      {csvLink}
+      <a className="link" href={link} download="data.csv">
+        CSV download
+      </a>
       (...)
     </div>
   )
 }
 ```
 
-## [Live Example](https://codesandbox.io/s/zealous-haibt-8rr08)
+## [Live Example](https://codesandbox.io/s/friendly-dust-tr656)
 
 ## API
 
 ```js
 type Options = Partial<{
   bom: boolean
-  children: JSX.Element | string
-  className: string
   delimiter: CSVDelimiter
   headers: string[]
-  fileName: string
 }>
 type Value = string | number | bigint | boolean | null
 type Content = Value[][] | Record<string, Value | Value[]>[]
@@ -59,6 +51,6 @@ type Content = Value[][] | Record<string, Value | Value[]>[]
 `useExportableCSV()` call
 
 ```js
-const link: JSX.Element = useExportableCSV(content: Content, options: Options)
+const link: string = useExportableCSV(content: Content, options: Options)
 
 ```
