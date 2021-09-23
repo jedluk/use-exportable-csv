@@ -2,9 +2,10 @@
 
 React hook for downloading csv in convenient way.
 
-- your json-like data in converted into csv (with options You provide: delimiter, headers, BOM mask) and on top of this, blob is generated
-- blob is available under DOMString, which returned from hook
-- each time you change your data/options, DOMString is unbound from document
+- your json-like data (or set of primitive values) in converted into csv (with options You provide: delimiter, headers, BOM mask) and on top of this, blob is generated
+- blob is available under DOMString, which is returned from hook
+- each time you change your data/options, DOMString is updated (old one is unbound from document)
+- link can be used as anchor tag attribute to enable downloadation
 
 ## Usage
 
@@ -38,6 +39,7 @@ function Component() {
 ## API
 
 ```js
+type CSVDelimiter = ',' | ';'
 type Options = Partial<{
   bom: boolean
   delimiter: CSVDelimiter
