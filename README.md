@@ -34,7 +34,7 @@ function Component() {
 }
 ```
 
-## [Live Example](https://codesandbox.io/s/friendly-dust-tr656)
+## [Live Example](https://codesandbox.io/s/jolly-morning-tpwww)
 
 ## API
 
