@@ -39,10 +39,25 @@ describe('utils', () => {
       expect(toRows(result)[0]).toEqual(headers.join(delimiter))
     })
 
-    it('sanitizes string when includes delimiter inside', () => {
-      data[0].name = 'maybe,fred'
+    it('adds quotes for phrase including delimiter', () => {
+      const phrase = 'maybe,fred'
+      data[0].name = phrase
       const result = toCSV(data, delimiter)
-      expect(toRows(result)[1]).toEqual('"maybe,fred",22')
+      expect(toRows(result)[1]).toEqual(`\"${phrase}\",22`)
+    })
+
+    it('adds quotes for phrase including new line sign', () => {
+      const phrase = 'maybe\nfred'
+      data[0].name = phrase
+      const result = toCSV(data, delimiter)
+      expect(toRows(result)[1]).toEqual(`\"${phrase}\",22`)
+    })
+
+    it('does not add quotes for already quoted phrase', () => {
+      const phrase = '"maybe \n fred"'
+      data[0].name = phrase
+      const result = toCSV(data, delimiter)
+      expect(toRows(result)[1]).toEqual(`\"${phrase}\",22`)
     })
 
     it('prints data with given delimiter', () => {

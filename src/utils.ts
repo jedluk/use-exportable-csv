@@ -1,12 +1,21 @@
 import { Content, CSVDelimiter, Value } from '../index'
 import { Blob, createObjectURL } from './globals'
 
-const LINE_BREAK = '\r\n'
+const QUOTED_REGEX = /^\".*\"$/
+const NEW_LINE_SIGN = '\n'
+const LINE_BREAK = `\r${NEW_LINE_SIGN}`
 const BOM = new Uint8Array([0xef, 0xbb, 0xbf])
 
 function sanitize(delimeter: CSVDelimiter): (values: string[]) => string[] {
   return (values: string[]): string[] =>
-    values.map((value) => (value.includes(delimeter) ? `"${value}"` : value))
+    values.map((value) => {
+      if (QUOTED_REGEX.test(value)) {
+        return value
+      }
+      return value.includes(delimeter) || value.includes(NEW_LINE_SIGN)
+        ? `"${value}"`
+        : value
+    })
 }
 
 function stringify(values: Value[]): string[] {
