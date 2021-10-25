@@ -25,7 +25,7 @@ function Component() {
   return (
     <div className="xyz">
       (...)
-      <a className="link" href={link} download="data.csv">
+      <a className="link" href={csvLink} download="data.csv">
         CSV download
       </a>
       (...)
